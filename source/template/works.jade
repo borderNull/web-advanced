@@ -1,0 +1,105 @@
+doctype html
+html
+ include common/_head
+ body
+  include common/_header
+  include common/triangle-works
+  .works__header_title
+   h2.works__title Мои работы
+   svg.works__title_logo
+      use(xlink:href="#works_header")
+  section.slider__section#slider
+    .slider__container
+      .slider__current#slide
+       ul.slider__current-list
+        li.slider__current-item.slider__current-item--active
+          img.slider__current-image(src="/assets/img/portfolio_img.png")
+        li.slider__current-item
+          img.slider__current-image(src="/assets/img/slider2.jpg")
+        li.slider__current-item
+          img.slider__current-image(src="/assets/img/slider3.jpg")
+        li.slider__current-item
+          img.slider__current-image(src="/assets/img/slider4.jpg")
+      .slider__description#slideDescr
+        .slider__description-container
+         ul.slider__description-list
+          li.slider__description-item.slider__description-item--active
+            .slider__header Сайт первый
+            .slider__caption HTML CSS JS
+            a.slider__btn(href="#") Посмотреть сайт
+             svg.link__img
+              use(xlink:href='#link')
+          li.slider__description-item
+            .slider__header Сайт второй
+            .slider__caption CSS HTML JS
+            a.slider__btn(href="#") Посмотреть сайт
+             svg.link__img
+              use(xlink:href='#link')
+          li.slider__description-item
+            .slider__header Сайт третий
+            .slider__caption JS HTML CSS
+            a.slider__btn(href="#") Посмотреть сайт
+             svg.link__img
+              use(xlink:href='#link')
+          li.slider__description-item
+            .slider__header Сайт четвертый
+            .slider__caption JS HTML CSS
+            a.slider__btn(href="#") Посмотреть сайт
+             svg.link__img
+              use(xlink:href='#link')  
+      .slider__thumbnails       
+        .thumbnail.thumbnail--down#downBtn
+          ul.thumbnail__list
+            li.thumbnail__item
+             img.thumbnail__image(src="/assets/img/portfolio-left.jpg")
+            li.thumbnail__item
+             img.slider__current-image(src="/assets/img/slider2.jpg")
+            li.thumbnail__item
+             img.slider__current-image(src="/assets/img/slider3.jpg")
+            li.thumbnail__item.thumbnail__item--active
+             img.slider__current-image(src="/assets/img/slider4.jpg")
+        .thumbnail.thumbnail--up#upBtn
+          ul.thumbnail__list
+            li.thumbnail__item
+             img.thumbnail__image(src="/assets/img/portfolio-left.jpg")
+            li.thumbnail__item.thumbnail__item--active
+             img.slider__current-image(src="/assets/img/slider2.jpg")
+            li.thumbnail__item
+             img.slider__current-image(src="/assets/img/slider3.jpg")
+            li.thumbnail__item
+             img.slider__current-image(src="/assets/img/slider4.jpg")                  
+  section.about-me
+     .about-me__header
+      h2.about-me__heading Что обо мне говорят
+       svg.about_header-img
+        use(xlink:href="#about_header")
+     .about-me__reviews
+      .about-me__reviews-section
+        .about-me__review
+          .about-me__review-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+          .about-me__img-section
+            .about-me__dima
+            .about-me__signature
+             .about-me__signature-name Ковальчук Дмитрий
+             .about-me__signature-info Основатель школы LoftSchool
+         .about-me__review
+          .about-me__review-text Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+          .about-me__img-section
+            .about-me__zar
+            .about-me__signature
+             .about-me__signature-name Зар Захаров
+             .about-me__signature-info Главный преподаватель курса
+      .about-me__contact-section
+        h3.contact__heading Связаться со мной
+        form(action="contact-me__form",type="POST")
+          input(type="text",name="name",placeholder="Имя").contact-me__input._name
+          input(type="text",name="email",placeholder="Email").contact-me__input._email
+          textarea(name="txtarea",placeholder="Ваше сообщение").contact-me__input.__textarea
+         .contact-me__btns
+          a.contact-me__btn(href="#") Отправить
+          a.contact-me__btn(href="#") Очистить
+     svg.arrow-up
+      use(xlink:href="#portf_arrow_up")
+
+
+  include  common/footer__works   

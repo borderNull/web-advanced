@@ -1,0 +1,42 @@
+.sprite-section 
+       include ../../../build/assets/sprite/sprite.svg
+.preloader__section
+  .preloader__container
+   .preloader__text 0
+   svg.preloader__round(version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="144px" height="144px" viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve")
+     circle.circle__outer.circle(opacity="0.4" fill="none" stroke-dasharray="439.822971503" stroke-dashoffset="439.822971503" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" enable-background="new    " cx="72" cy="71.999" r="70")
+     circle.circle__center.circle(opacity="0.7" fill="none" stroke-dasharray="345.575191895" stroke-dashoffset="345.575191895" stroke="#FFFFFF" stroke-width="3.8938" stroke-miterlimit="10" enable-background="new    " cx="72" cy="72" r="55").
+     circle.circle__inner.circle(fill="none" stroke-dasharray="251.327412287" stroke-dashoffset="251.327412287" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" cx="72" cy="72" r="40")
+     text.preloader__inner__text(transform="matrix(1 0 0 1 51.5391 79.0127)" fill="#FFFFFF" font-family="'ArialMT'" font-size="24")
+header.header
+     -var soc = { 'vk' : '#vk', 'git': '#github', 'in' : '#in'}
+     ul.social__list.social__list_header
+       each id,type in soc
+        li.social__items(class=type)
+         a(href="#").social__link
+          svg.header__icon(class=type)
+           use(xlink:href="#{id}")
+     nav.nav__wrap
+       .nav__btn#nav__btn
+        -for(var i=0;i<3;i++)
+         .menu_burger(attr=i)
+        -var menu = { 'Мои работы' : '/works.html','Обо мне' : '/about.html','Блог' : '/blog.html','Авторизация' : '/index.html'}
+       ul.nav
+        each href, title in menu
+         li.nav__item
+          a.nav__link(href="#{href}")=title
+  .wrapper
+    .first-screen
+     .bg__image 
+      img(src="../assets/img/mountains_bg.jpg")
+     block img   
+      .author__section-img
+        img(src="../assets/img/portfolio_header.png")
+     .author__section-block
+      img(src="../assets/img/author.png")
+      .blog__header--background
+       h1.author__header Бутин Максим
+       p.author__text Личный сайт, веб разработчика
+     svg.arrow__slide__down
+       use(xlink:href="#arrow_down")  

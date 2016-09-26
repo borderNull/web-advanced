@@ -1,0 +1,58 @@
+doctype html
+html
+ include common/_head
+ body
+  .admin__head
+   h2.admin__head__header Панель администрирования
+   a.admin__head__exit(href="index.html") Вернуться на сайт
+   -var tabs = { 'Обо мне' :'tab-1', 'Блог' :'tab-2','Мои работы' :'tab-3'}
+  .tabs__section
+    each id,name in tabs
+     input(type="radio",name="tab", id="#{id}")
+     label(for="#{id}")=name
+  .tabs__content
+    .tab
+     h3.skills__header Страница "Обо мне"
+     form.skills__form(method="POST")
+      .skills__section
+        -var skills = { "Html" : "html", "CSS" : "css", "JavaScript" : "js"}
+         h3.skills__header Frontend
+        each id,name in skills  
+         label.skills__label(for="#{id}")=name
+         input.skills__input(type="text", id="#{id}" value="#{frontend.#{id}}")
+         span %
+      .skills__section
+        -var skills = { "PHP" : "php", "Node.js" : "nodejs", "Mongo.db" : "mongodb"}
+         h3.skills__header Backend
+        each id,name in skills  
+         label.skills__label(for="#{id}")=name
+         input.skills__input(type="text", id="#{id}" value="#{backend.#{id}}")
+         span %
+      .skills__section
+        -var skills = { "Git" : "git", "Gulp" : "gulp", "Bower" : "bower"}
+         h3.skills__header Workflow
+        each id,name in skills  
+         label.skills__label(for="#{id}")=name
+         input.skills__input(type="text", id="#{id}" value="#{workflow.#{id}}")
+         span %
+      button.skills__submit(type="button",value="Сохранить" id="skills__btn")
+    .tab  
+     .blog__section
+      h3.blog__header Страница "Блог"
+      form.blog__form(method="POST")
+        label(for="title") Добавить запись
+        input.blog__input(type="text",placeholder="Название")
+        input.blog__input(type="text",placeholder="Дата")
+        input.blog__input(typr="textarea",placeholder="Содержание")
+        input.blog__input.blog__submit__btn(type="submit", value="Сохранить")
+    .tab
+      .works__section
+        h3.works__header Страница "Мои работы"
+        form.works__form(method="POST")
+        label.works__label(for="project")
+        input.works__input(type="text",placeholder="Название проекта",name="project")
+        input.works__input(type="text",placeholder="Технологии")
+        input.works__input(type="file")
+        label.works__label(for="works-file") Загрузить картинку
+        input.works__input(type="submit", value="Добавить запись" id="works-submit")
+        script(src="/assets/js/admin.js")
