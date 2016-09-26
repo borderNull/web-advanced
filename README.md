@@ -1,4 +1,10 @@
-# Loftshool builder
+# Project builder 
+
+Butin Maxim
+
+1. Added svg.sprite
+2. Added copy.fonts and copy.images
+3. Almost added postcss handlers 
 
 Getting started:
 
