@@ -1,0 +1,88 @@
+extends ../_common_template
+
+block variables 
+  - var title = "My works"
+  - var socials = {'vk.com': '#vk', 'git.com' : '#github', 'in.com':'#in'}
+  - var rounds = {'vk.com': '#vk_round', 'git.com' : '#github_round', 'in.com':'#in_round'}
+  - var menu = { 'Мои работы' : '/works.html','Обо мне' : '/about.html','Блог' : '/blog.html','Авторизация' : '/index.html'}
+  - var submit =  {'Очистить': 'clear', 'Отправить' : 'submit'}
+block triangles
+  .triangle__block
+      include ../../icons/triangle.svg      
+ 
+block middle_content
+  section.slider__screen
+    .slider__screen__header
+     svg.works__header__svg
+        use(xlink:href='#works_header')
+     h2.second__heading мои работы
+    .slider__wrap#slider
+     .slider__descr__container#slideDescr
+      .slider__descr 
+        ul.descr__list
+         li.descr__item
+          h3.descr__heading сайт школы онлайн образования
+          p.descr__bundle css, html, javascript
+          a.descr__link Посмотреть сайт
+              svg.descr__svg
+                  use(xlink:href="#link")
+     .slider__current__container               
+      .slider__current
+        ul.slide__list
+           li.slide__item
+            img.slide__img(src="assets/img/portfolio_img.png")
+     .slider__thumbnails__container
+       .slider__thumbnail.__down
+         ul.thumbnail__list
+           li.thumbnail__item
+               img.thumbnail__img(src="assets/img/portfolio-left.jpg")
+       .slider__thumbnail.__up
+         ul.thumbnail__list
+           li.thumbnail__item
+               img.thumbnail__img(src="assets/img/portfolio-right.jpg")
+  section.reviews__section
+   .reviews__wrap
+    .reviews__header
+     svg.reviews__header__svg
+      use(xlink:href="#about_header")
+      h3.reviews__heading что обо мне говорят
+    .reviews__container
+     .review__block
+       p.review__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+       img.review__img(src="assets/img/kov.png")
+       p.review__author Ковальчук Дмитрий Основатель LoftSchool
+     .review__block
+       p.review__text Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+       img.review__img(src="assets/img/zar.png")
+       p.review__author Зар Захаров главный преподаватель
+    .feedback__form__section
+      h3.feedback__heading Связаться со  мной
+      .feedback__input__section
+       form.feedback__form
+         input.feedback__input(name="name",placeholder="Имя")
+         input.feedback__input(name="email",placeholder="Email")
+         textarea.feedback__message(name="message",placeholder="Ваше сообщение")
+      .feedback__links__block    
+       each name,link in submit
+        a.feedback__link(href=`${name}`)=link
+    svg.arrow__top
+     use(xlink:href="#portf_arrow_up")
+  footer.footer__works__section
+    .footer__top__section
+     .footer__nav__block
+      each link,name in menu
+       a.footer__nav__link(href=`${link}`)=name
+     .footer__socials__block
+      each id,link in rounds
+       a.footer__social__link(href=`${link}`)
+         svg.footer__social__svg
+           use(xlink:href=`${id}`)
+    .footer__bottom__section
+      p.footer__descr Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
+      p.footer__author © Владимир Астахов | создано с любовью в LoftSchool | 2016
+
+
+
+                
+
+

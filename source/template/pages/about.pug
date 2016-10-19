@@ -1,0 +1,78 @@
+extends ../_common_template
+
+block variables 
+  - var title = "About me"
+  - var socials = {'vk.com': '#vk', 'git.com' : '#github', 'in.com':'#in'}
+  - var rounds = {'vk.com': '#vk_round', 'git.com' : '#github_round', 'in.com':'#in_round'}
+  - var menu = { 'Мои работы' : '/works.html','Обо мне' : '/about.html','Блог' : '/blog.html','Авторизация' : '/index.html'}
+   -var frontend = { 'HTML' : 'graph__fill--html', 'CSS' : 'graph__fill--css','JS' : 'graph__fill--js' }
+   -var backend = { 'PHP' : 'graph__fill--php', 'mySQL' : 'graph__fill--mysql','Node.js & npm' : 'graph__fill--node', 'Mongo.db' : 'graph__fill--mongo'  }
+   -var workflow = { 'Git' : 'graph__fill--git', 'Gulp' : 'graph__fill--gulp','Bower' : 'graph__fill--bower' }
+   -var contacts = { '#skype' : 'vsebydetkaknado', '#envelope' : 'vsebydetkaknado@gmail.com', '#phone' : '+7 953 172 51 08', '#map_marker' : 'Санкт-Петербург'}
+block triangles
+    .triangles__about
+      include ../../icons/triangle.svg      
+block middle_content
+    section.about__content__wrap
+       .about__bio__section
+         svg.about__bio__svg
+          use(xlink:href="#about_header")
+         h3.about__bio__heading обо мне
+         img.about__bio__img(src="assets/img/test.jpg")
+         h4.about__bio__subheading кто я 
+         p.about__bio__text Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+         p.about__bio__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво! 
+       .about__skills__section
+         h3.about__skills__heading Чем я могу быть вам полезен
+         p.about__skills__text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+         .skills__rounds__section
+           h4.about__skills__rounds__heading Frontend
+           .skills__rounds__row
+             each type,name in frontend
+              .skills__round
+                svg(width="110", height="110", class="graph__svg")
+                  circle(r="45", cx="50%", cy="50%", stroke="#ccc", fill="none")
+                  circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class='graph__fill #{type}', transform="rotate(-90 55 55)")
+                  span.graphs__text=name
+           h4.about__skills__rounds__heading Backend         
+           .skills__rounds__row
+             each type,name in backend
+              .skills__round
+               svg(width="110", height="110", class="graph__svg")
+                circle(r="45", cx="50%", cy="50%", stroke="#ccc", fill="none")
+                circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill #{type}", transform="rotate(-90 55 55)")
+               span.graphs__text=name
+           h4.about__skills__rounds__heading Workflow
+           .skills__rounds__row
+             each type,name in workflow
+              .skills__round
+               svg(width="110", height="110", class="graph__svg")
+                   circle(r="45", cx="50%", cy="50%", stroke="#ccc", fill="none")
+                   circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill #{type}", transform="rotate(-90 55 55)")
+                   span.graphs__text=name
+    section.map__section
+     .map__block#map
+     .contacts__block
+        h3.contacts__heading
+        ul.contacs__list
+          each text,id in contacts
+            li.contacts__item
+              svg.contacts__svg
+                use(xlink:href=`${id}`)
+              span.contacts__text=text
+    footer.footer__works__section
+    .footer__top__section
+     .footer__nav__block
+      each link,name in menu
+       a.footer__nav__link(href=`${link}`)=name
+     .footer__socials__block
+      each id,link in rounds
+       a.footer__social__link(href=`${link}`)
+         svg.footer__social__svg
+           use(xlink:href=`${id}`)
+    .footer__bottom__section
+      p.footer__descr Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
+      p.footer__author © Владимир Астахов | создано с любовью в LoftSchool | 2016
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_7umeeXFKJy0XukfBuBJT5PtOvGZ8Rxk&callback=initMap",async defer)  
+
+

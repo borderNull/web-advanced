@@ -2,6 +2,52 @@ extends ../_template
 
 block variables
   - var title = 'Home page'
+  - var socials = {'vk.com': '#vk', 'git.com' : '#github', 'in.com':'#in'}
+  - var navigation = {'Мои работы': '/works.html', 'Обо мне': '/about', 'Блог':'/blog'}
+  -   var submit = { '#back': 'На главную', '#admin': 'Войти'}
 
 block content
-  include ../common/_greating
+  .sprite__section
+   include ../../../build/assets/sprite/sprite.svg  
+  section.parallax__section
+    ul.parallax__list#scene
+     -for(i=0;i<10;i++) 
+      li.layer(data-depth="0."+i)
+        div(class='layer'+i).layer__img
+  button.auth__button Авторизоваться
+  main.card__wrapper#flip
+    .flipper
+        .front__page
+            img.author__img(src="../assets/img/author.png")
+            h1.front__page__heading Максим Бутин
+            p.front__page__subheading Личный сайт веб разработчика
+            .socials__section
+              each sprite,href in socials  
+                a.social__link(href=`${href}`)
+                    svg.social__icon
+                        use(xlink:href=`${sprite}`)
+            nav.nav__section
+              each link,title in navigation
+                a.nav__link(href=`${link}`)= title
+        .back__page
+            h2.back__page__heading Авторизуйтесь
+            form.auth__form(type="POST", action="/")
+             label.login__label
+              input.login__input(placeholder="Логин")
+             label.password__label
+              input.password__input(placeholder="Пароль")
+             .captcha__section
+              input.checkbox(type="checkbox", name="checkbox" id="checkbox")
+              label.checkbox__label(for="checkbox") Я человек
+              p.verification__question Вы точно не робот?
+              input.radio(type="radio" name="radio" id="radio-1")
+              label.radio__label(for="radio-1") Да
+              input.radio(type="radio" name="radio" id="radio-2")
+              label.radio__label(for="radio-2") Не уверен
+             .submit__section
+              each title,id in submit
+                 a.submit__link(id=`${id}` href='#')= title 
+  footer.footer__section
+   p.footer__text &copy; Бутин Максим | создано с любовью в LofSchool | 2016
+  script(src='/assets/js/parallax.min.js' defer) 
+

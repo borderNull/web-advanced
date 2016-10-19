@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 global.$ = {
     package: require('./package.json'),
     config: require('./gulp/config'),
@@ -8,35 +10,40 @@ global.$ = {
         template: require('./gulp/paths/template.js'),
         jsFoundation: require('./gulp/paths/js.foundation.js'),
         cssFoundation: require('./gulp/paths/css.foundation.js'),
+        parallax: require('./gulp/paths/parallax.js'),
         app: require('./gulp/paths/app.js')
     },
     gulp: require('gulp'),
+    atImport: require('postcss-import'),
     rimraf: require('rimraf'),
-
-    nested: require('postcss-nested'),
-    short: require('postcss-short'),
+    fs: require('fs'),    
+    nested: require('postcss-nested'),   
+    simpVars: require('postcss-simple-vars'),
     assets: require('postcss-assets'),
-    
+    short: require('postcss-short'),
     browserSync: require('browser-sync').create(),
     gp: require('gulp-load-plugins')()
 
 };
+
 
 $.path.task.forEach(function(taskPath) {
     require(taskPath)();
 });
 
 $.gulp.task('default', $.gulp.series(
-    'clean',
-    $.gulp.parallel(
+    'clean','sprite:svg',
+    $.gulp.parallel(        
         'postcss',
         'pug',
         'js.foundation',
         'js.process',
+        'parallax.js',
         'copy.image',
-        'css.foundation',
-        'copy.fonts',
-        'sprite:svg'
+        'css.foundation',       
+        'copy.fonts'
+
+        
     ),
     $.gulp.parallel(
         'watch',

@@ -1,0 +1,53 @@
+block variables
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title #{title}
+    meta(content="" name="author")
+    meta(content="" name="description")
+    meta(content="" name="keywords")
+    meta(content="width=device-width, initial-scale=1" name="viewport")
+    meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+    //- favicon block start
+    //- favicon block end
+
+    link(rel='stylesheet' href='/assets/css/foundation.css')
+    link(rel='stylesheet' href='/assets/css/app.css')
+    script(src='/assets/js/foundation.js' defer)
+    script(src='/assets/js/app.js' defer)
+
+    <!--[if lt IE 9]>
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+    <![endif]-->
+
+  body
+     .sprite__section
+       include ../../build/assets/sprite/sprite.svg
+     header.header__section 
+      ul.socials__list
+        each id,link in socials
+          li.socials__item
+            a.social__link(href=`${link}`)
+             svg.social__item__svg
+              use(xlink:href=`${id}`)
+      nav.nav__menu
+        -for(var i=0;i<3;i++)
+         .menu__block(attr=i)
+     ul.nav__list   
+        each link,name in menu
+          li.nav__item
+           a.nav__item__link(href=`${link}`)=name
+     section.first__screen 
+      .bg__block
+      .portfolio__block
+      .author__block
+       img.author__img(src='../assets/img/author.png' )
+       h1.author__heading Бутин Максим
+       p.author__text Личный сайт, веб разработчика
+      svg.arrow__down
+       use(xlink:href="#portf_arrow_down")
+      block triangles    
+     block middle_content

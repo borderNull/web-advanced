@@ -1,0 +1,172 @@
+.triangles__about {
+    width: 100%;
+}
+
+.triangles__about .triangle .triangle__left {
+    fill: #efeee9;
+}
+
+.triangles__about .triangle .triangle__right {
+    fill: #eeebdf;
+}
+
+.about__content__wrap {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background: linear-gradient(to right, #efeee9 0%, #efeee9 50%, #eeebdf 50%, #eeebdf 100%);
+}
+
+.about__bio__section {
+    background-color: #efeee9;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: relative;
+}
+
+.about__bio__svg {
+    position: absolute;
+    width: 100%;
+    top: -50px;
+    opacity: .2;
+}
+
+.about__bio__heading {
+   /*  background: inline(../icons/about_header.svg)center; */
+    background-size: 100%;
+    font: 63px/1 'BERNIERRegular-Regular', Helvetica, Arial;
+    color: #373e42;
+    margin: 0 0 60px;
+    text-align: center;
+    width: 40%;
+}
+
+.about__bio__subheading {
+    color: #455a64;
+    font: 35px/1 'BERNIERRegular-Regular', Helvetica, Arial;
+    margin: 40px 0;
+}
+
+.about__bio__text {
+    width: 55%;
+    font: 16px/1.5 'robotoregular',sans-serif,Arial;
+    color: #455a64;
+    &:first-of-type{
+        margin: 0 0 20px;
+    }
+
+}
+
+.about__skills__section {
+    background-color: #eeebdf;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 0 0 40px;
+    align-items: center;
+}
+
+.about__skills__heading {
+    text-align: center;
+    font: 35px/1 'BERNIERRegular-Regular', Helvetica, Arial;
+    color: #455a64;
+    width: 225px;
+    margin: 0 0 40px;
+}
+
+.about__skills__text {
+    font: 16px/1.5 'robotoregular',sans-serif,Arial;
+    color: #455a64;
+}
+
+.skills__rounds__section {
+    align-self: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+.skills__rounds__row {
+    display: flex;
+
+}
+
+
+.graphs__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  font: 500 12px 'Roboto', Arial, sans-serif;
+  color: #10c1a8;
+}
+
+.graph__svg {
+    position: relative;
+  fill: none;
+  stroke-width: 20;
+}
+
+.graph__fill {
+  stroke-dasharray: 282.5;
+  transition: all 1s;
+}
+
+.graph__fill--html {
+  stroke-dashoffset: 20;
+}
+
+.graph__fill--css {
+  stroke-dashoffset: 40;
+}
+
+.graph__fill--js {
+  stroke-dashoffset: 150;
+}
+
+.graph__fill--php {
+  stroke-dashoffset: 200;
+}
+
+.graph__fill--mysql {
+  stroke-dashoffset: 200;
+}
+
+.graph__fill--node {
+  stroke-dashoffset: 120;
+}
+
+.graph__fill--mongo {
+  stroke-dashoffset: 180;
+}
+
+.graph__fill--git {
+  stroke-dashoffset: 50;
+}
+
+.graph__fill--gulp {
+  stroke-dashoffset: 70;
+}
+
+.graph__fill--bower {
+  stroke-dashoffset: 100;
+}
+.map__section {
+  position: relative;
+   min-height: calc(650px + 150px);
+   height: calc(100% + 150px);
+   margin: 0 0 -150px 0;
+   overflow: hidden;
+   z-index: -1;
+
+
+}
+
+.map__block {
+height: 100%;
+z-index: 0;
+}
