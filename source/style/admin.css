@@ -1,0 +1,50 @@
+.admin__header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #01bfa5;
+}
+
+.admin__heading {
+    color: #fff;
+    font: 28px/1 'robotomedium', sans-serif, Arial;
+}
+
+.admin__link {
+    color: #b3ece4;
+    font: 700 16px/1 'robotomedium', sans-serif, Arial;
+    transition: all .5s;
+    text-decoration: underline;
+    &:hover {
+        color: #fff;
+    }
+}
+.admin__tabs {
+    display: flex;
+    background-color: #f0efe9;
+    height: 60px;
+    align-items: center;
+}
+
+.admin__tab__link {
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 180px;
+    border-right: 3px solid #fff;
+    color: #839094;
+    font: 700 16px/60px 'robotomedium',sans-serif,Arial;
+    transition: all .5s;
+    &:hover {
+        background-color: #fff;
+        color: #00bfa5;
+    }
+}
+
+.sections__wrap {
+    background: url('../img/mountains_bg.jpg');
+}
+

@@ -9,7 +9,9 @@ block variables
    -var backend = { 'PHP' : 'graph__fill--php', 'mySQL' : 'graph__fill--mysql','Node.js & npm' : 'graph__fill--node', 'Mongo.db' : 'graph__fill--mongo'  }
    -var workflow = { 'Git' : 'graph__fill--git', 'Gulp' : 'graph__fill--gulp','Bower' : 'graph__fill--bower' }
    -var contacts = { '#skype' : 'vsebydetkaknado', '#envelope' : 'vsebydetkaknado@gmail.com', '#phone' : '+7 953 172 51 08', '#map_marker' : 'Санкт-Петербург'}
-block triangles
+block header
+ include ../common/header 
+  block triangles
     .triangles__about
       include ../../icons/triangle.svg      
 block middle_content
@@ -32,7 +34,7 @@ block middle_content
               .skills__round
                 svg(width="110", height="110", class="graph__svg")
                   circle(r="45", cx="50%", cy="50%", stroke="#ccc", fill="none")
-                  circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class='graph__fill #{type}', transform="rotate(-90 55 55)")
+                  circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill " + type, transform="rotate(-90 55 55)")
                   span.graphs__text=name
            h4.about__skills__rounds__heading Backend         
            .skills__rounds__row
@@ -40,7 +42,7 @@ block middle_content
               .skills__round
                svg(width="110", height="110", class="graph__svg")
                 circle(r="45", cx="50%", cy="50%", stroke="#ccc", fill="none")
-                circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill #{type}", transform="rotate(-90 55 55)")
+                circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill " + type, transform="rotate(-90 55 55)")
                span.graphs__text=name
            h4.about__skills__rounds__heading Workflow
            .skills__rounds__row
@@ -48,31 +50,21 @@ block middle_content
               .skills__round
                svg(width="110", height="110", class="graph__svg")
                    circle(r="45", cx="50%", cy="50%", stroke="#ccc", fill="none")
-                   circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill #{type}", transform="rotate(-90 55 55)")
+                   circle(r="45", cx="50%", cy="50%", stroke="#10c1a8", class="graph__fill " + type, transform="rotate(-90 55 55)")
                    span.graphs__text=name
     section.map__section
      .map__block#map
      .contacts__block
-        h3.contacts__heading
+        h3.contacts__heading контакты
         ul.contacs__list
           each text,id in contacts
             li.contacts__item
               svg.contacts__svg
-                use(xlink:href=`${id}`)
+                use(xlink:href=id)
               span.contacts__text=text
-    footer.footer__works__section
-    .footer__top__section
-     .footer__nav__block
-      each link,name in menu
-       a.footer__nav__link(href=`${link}`)=name
-     .footer__socials__block
-      each id,link in rounds
-       a.footer__social__link(href=`${link}`)
-         svg.footer__social__svg
-           use(xlink:href=`${id}`)
-    .footer__bottom__section
-      p.footer__descr Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
-      p.footer__author © Владимир Астахов | создано с любовью в LoftSchool | 2016
+block footer          
+    footer.footer__about__section
+      include ../common/footer
     script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_7umeeXFKJy0XukfBuBJT5PtOvGZ8Rxk&callback=initMap",async defer)  
 
 

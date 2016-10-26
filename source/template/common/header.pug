@@ -1,0 +1,29 @@
+.sprite__section
+  include ../../../build/assets/sprite/sprite.svg
+header.header__section#topSection 
+      ul.socials__list
+        each id,link in socials
+          li.socials__item
+            a.social__link(href=link)
+             svg.social__item__svg
+              use(xlink:href=id)
+      nav.nav__menu
+        -for(var i=0;i<3;i++)
+         .menu__block(attr=i)
+ul.nav__list   
+        each link,name in menu
+          li.nav__item
+           a.nav__item__link(href=link)=name
+section.first__screen 
+      .bg__block
+        img(src="../assets/img/mountains_bg.jpg")
+      .portfolio__block
+        svg.portfolio__header
+          use(xlink:href="#portfolio_header")
+      .author__block
+       img.author__img(src='../assets/img/author.png' )
+       h1.author__heading Бутин Максим
+       p.author__text Личный сайт, веб разработчика
+      a.arrow__link.__down(href="#midSection") 
+       svg.arrow__down__svg
+        use(xlink:href="#portf_arrow_down")

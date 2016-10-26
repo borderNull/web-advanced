@@ -11,7 +11,8 @@ global.$ = {
         jsFoundation: require('./gulp/paths/js.foundation.js'),
         cssFoundation: require('./gulp/paths/css.foundation.js'),
         parallax: require('./gulp/paths/parallax.js'),
-        app: require('./gulp/paths/app.js')
+        app: require('./gulp/paths/app.js'),
+        admin: require('./gulp/paths/admin.js')
     },
     gulp: require('gulp'),
     atImport: require('postcss-import'),
@@ -39,6 +40,7 @@ $.gulp.task('default', $.gulp.series(
         'js.foundation',
         'js.process',
         'parallax.js',
+        'admin.js',
         'copy.image',
         'css.foundation',       
         'copy.fonts'

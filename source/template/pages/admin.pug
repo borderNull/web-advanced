@@ -1,0 +1,63 @@
+extends ../_template
+
+block variables
+ -var title = "Administrator";
+ -var tabs = {"Обо мне": "#about-me", "Блог":"#blog","Мои работы":"#works"}
+ -var skills = { "Frontend":{ "Html": "html", 'CSS': "css","JavaScript": "js"}, "Backend":{ "PHP": "php", "mySQL": "mysql", "Node.js":"nodejs","Mongo.db":"mongodb"}, "Workflow":{ "Git": "git","Gulp":"gulp", "Bower": "bower"}}
+
+block admin__content
+ header.admin__header
+    h1.admin__heading Панель администрирования
+    a.admin__link(href="/index") Вернуться на сайт
+ nav.admin__tabs
+    each id,name in tabs
+       a.admin__tab__link(href=id)=name
+ main.sections__wrap      
+  section.admin__tab.__about#about-me
+   h3.admin__section__heading Страница "Обо мне"
+   form.skills__form#skillsForm(method="post")
+    .admin__skills__wrap
+     each name,heading in skills
+       .skills__block
+        h4.skill__heading=heading
+        if heading == "Frontend"
+         each key,val in skills["Frontend"]
+          .admin__skill__block
+           label.admin__skill__label(for=key)=val
+           input.admin__skill__input(id=key)
+           span.admin__skill__span %
+        else if heading == "Backend"
+         each key,val in skills["Backend"]
+          .admin__skill__block
+           label.admin__skill__label(for=key)=val
+           input.admin__skill__input(id=key)
+           span.admin__skill__span %
+        else if heading == "Workflow"
+         each key,val in skills["Workflow"]   
+          .admin__skill__block
+           label.admin__skill__label(for=key)=val
+           input.admin__skill__input(id=key)
+           span.admin__skill__span %
+    button.skills__btn#skillsBtn Сохранить
+  section.admin__tab.__blog#blog
+   h3.admin__section__heading Страница "Блог"
+   p.admin__section__subheading Добавить запись
+   form.blog__form#blogForm(method="post")
+    input.blog__form__input#postTitle(placeholder="Название" name="title", required)
+    input.blog__form__input#postDate(placeholder="Дата" name="date", required)
+    textarea.blog__form__textarea#postContent(placeholder="Содержание" name="content", required)
+    button.blog__btn#blogBtn Добавить
+  section.admin__tab.__works#works
+    h3.admin__section__heading Страница "Мои работы"
+    p.admin__section__subheading Добавить работу
+    form.works__form#workForm(method="post" action="/works" enctype="multipart/form-data")
+     input.works__form__input#workTitle(placehoder="Название проекта", name="workTitle")
+     input.works__form__input#workStack(placehoder="Технологии" name="stack")
+     input.works__form__input#workLink(type="url", name="workLink",placeholder="Ссылка")
+     input.works__form__input#workFile(type="file", name="workFile")
+     label.works__form__label(for="workFile") Загрузить картинку
+     button.works__btn#worksBtn(type="submit") Добавить
+
+
+
+   

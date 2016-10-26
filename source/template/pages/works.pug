@@ -6,10 +6,11 @@ block variables
   - var rounds = {'vk.com': '#vk_round', 'git.com' : '#github_round', 'in.com':'#in_round'}
   - var menu = { 'Мои работы' : '/works.html','Обо мне' : '/about.html','Блог' : '/blog.html','Авторизация' : '/index.html'}
   - var submit =  {'Очистить': 'clear', 'Отправить' : 'submit'}
-block triangles
+block header
+ include ../common/header
+ block triangles
   .triangle__block
-      include ../../icons/triangle.svg      
- 
+      include ../../icons/triangle.svg       
 block middle_content
   section.slider__screen
     .slider__screen__header
@@ -17,7 +18,7 @@ block middle_content
         use(xlink:href='#works_header')
      h2.second__heading мои работы
     .slider__wrap#slider
-     .slider__descr__container#slideDescr
+     .slider__descr__container#midSection
       .slider__descr 
         ul.descr__list
          li.descr__item
@@ -65,21 +66,12 @@ block middle_content
       .feedback__links__block    
        each name,link in submit
         a.feedback__link(href=`${name}`)=link
-    svg.arrow__top
-     use(xlink:href="#portf_arrow_up")
+    a.arrow__link.__up(href="#topSection")   
+     svg.arrow__top
+      use(xlink:href="#portf_arrow_up")
+block footer
   footer.footer__works__section
-    .footer__top__section
-     .footer__nav__block
-      each link,name in menu
-       a.footer__nav__link(href=`${link}`)=name
-     .footer__socials__block
-      each id,link in rounds
-       a.footer__social__link(href=`${link}`)
-         svg.footer__social__svg
-           use(xlink:href=`${id}`)
-    .footer__bottom__section
-      p.footer__descr Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
-      p.footer__author © Владимир Астахов | создано с любовью в LoftSchool | 2016
+    include ../common/footer
 
 
 

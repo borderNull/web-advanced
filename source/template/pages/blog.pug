@@ -1,0 +1,51 @@
+extends ../_common_template
+
+block variables
+   -var title = "Blog"
+   -var socials = {'vk.com': '#vk', 'git.com' : '#github', 'in.com':'#in'}
+   -var menu = { 'Мои работы' : '/works.html','Обо мне' : '/about.html','Блог' : '/blog.html','Авторизация' : '/index.html'}
+   -var sidebar = {'#one': 'Самое важное в SASS', '#two':'Приёмы в вёрстке, без которых не обходится ни один сайт', '#three':'Самый необходимый набор Gulp плагинов','#four':'Почему я выбрал Jade'}
+   -var rounds = {'vk.com': '#vk_round', 'git.com' : '#github_round', 'in.com':'#in_round'}
+
+block header
+ include ../common/blog_header
+  block triangles
+    .triangles__blog
+     include ../../icons/triangle.svg
+block middle_content
+  section.blog__container__fixed
+    aside.blog__sidebar
+    article.blog__content
+  section.blog__container
+    aside.blog__sidebar
+      button.swipe__btn
+      .sidebar__wrap
+        ul.sidebar__list
+          each text,hash in sidebar
+           li.sidebar__item
+             a.sidebar__link(href=hash)=text
+    article.blog__content
+      ul.blog__list
+        li.blog__item
+          h3.item__heading
+          p.item__date
+          p.item__text
+          p.item__text
+        li.blog__item
+          h3.item__heading
+          p.item__date
+          p.item__text
+          p.item__text
+        li.blog__item
+          h3.item__heading
+          p.item__date
+          p.item__text
+          p.item__text
+        li.blog__item
+          h3.item__heading
+          p.item__date
+          p.item__text
+          p.item__text
+block footer
+   footer.footer__blog
+     include ../common/footer  

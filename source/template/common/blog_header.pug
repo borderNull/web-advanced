@@ -1,0 +1,25 @@
+.sprite__section
+  include ../../../build/assets/sprite/sprite.svg
+header.header__section 
+      ul.socials__list
+        each id,link in socials
+          li.socials__item
+            a.social__link(href=link)
+             svg.social__item__svg
+              use(xlink:href=id)
+      nav.nav__menu
+        -for(var i=0;i<3;i++)
+         .menu__block(attr=i)
+ul.nav__list   
+        each link,name in menu
+          li.nav__item
+           a.nav__item__link(href=link)=name
+section.first__screen.__blog 
+      .bg__block
+      .portfolio__block.__blog
+      .author__block
+       img.author__img(src='../assets/img/author.png' )
+       h1.author__heading Бутин Максим
+       p.author__text Личный сайт, веб разработчика
+      svg.arrow__down
+       use(xlink:href="#portf_arrow_down")

@@ -4,9 +4,13 @@ block variables
   - var title = 'Home page'
   - var socials = {'vk.com': '#vk', 'git.com' : '#github', 'in.com':'#in'}
   - var navigation = {'Мои работы': '/works.html', 'Обо мне': '/about', 'Блог':'/blog'}
-  -   var submit = { '#back': 'На главную', '#admin': 'Войти'}
+  -   var submit = { 'back': 'На главную', 'admin': 'Войти'}
 
 block content
+  .modal__block
+   .modal__content 
+    h3.modal__heading Роботам тут не место!
+    span.modal__close закрыть
   .sprite__section
    include ../../../build/assets/sprite/sprite.svg  
   section.parallax__section
@@ -23,12 +27,12 @@ block content
             p.front__page__subheading Личный сайт веб разработчика
             .socials__section
               each sprite,href in socials  
-                a.social__link(href=`${href}`)
+                a.social__link(href=href)
                     svg.social__icon
-                        use(xlink:href=`${sprite}`)
+                        use(xlink:href=sprite)
             nav.nav__section
               each link,title in navigation
-                a.nav__link(href=`${link}`)= title
+                a.nav__link(href=link)= title
         .back__page
             h2.back__page__heading Авторизуйтесь
             form.auth__form(type="POST", action="/")
@@ -46,7 +50,7 @@ block content
               label.radio__label(for="radio-2") Не уверен
              .submit__section
               each title,id in submit
-                 a.submit__link(id=`${id}` href='#')= title 
+                 a.submit__link(id=id href='#')= title 
   footer.footer__section
    p.footer__text &copy; Бутин Максим | создано с любовью в LofSchool | 2016
   script(src='/assets/js/parallax.min.js' defer) 

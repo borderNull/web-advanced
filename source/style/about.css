@@ -1,17 +1,5 @@
-.triangles__about {
-    width: 100%;
-}
-
-.triangles__about .triangle .triangle__left {
-    fill: #efeee9;
-}
-
-.triangles__about .triangle .triangle__right {
-    fill: #eeebdf;
-}
-
 .about__content__wrap {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     background: linear-gradient(to right, #efeee9 0%, #efeee9 50%, #eeebdf 50%, #eeebdf 100%);
@@ -20,7 +8,6 @@
 .about__bio__section {
     background-color: #efeee9;
     width: 50%;
-    height: 100vh;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -35,7 +22,6 @@
 }
 
 .about__bio__heading {
-   /*  background: inline(../icons/about_header.svg)center; */
     background-size: 100%;
     font: 63px/1 'BERNIERRegular-Regular', Helvetica, Arial;
     color: #373e42;
@@ -52,18 +38,16 @@
 
 .about__bio__text {
     width: 55%;
-    font: 16px/1.5 'robotoregular',sans-serif,Arial;
+    font: 16px/1.5 'robotoregular', sans-serif, Arial;
     color: #455a64;
-    &:first-of-type{
+    &:first-of-type {
         margin: 0 0 20px;
     }
-
 }
 
 .about__skills__section {
     background-color: #eeebdf;
     width: 50%;
-    height: 100vh;
     display: flex;
     flex-flow: column nowrap;
     padding: 0 0 0 40px;
@@ -79,94 +63,150 @@
 }
 
 .about__skills__text {
-    font: 16px/1.5 'robotoregular',sans-serif,Arial;
+    font: 16px/1.5 'robotoregular', sans-serif, Arial;
     color: #455a64;
+    margin: * * 50px;
 }
 
 .skills__rounds__section {
     align-self: flex-start;
     display: flex;
     flex-flow: column nowrap;
-
+    width: 100%;
 }
 
-.skills__rounds__row {
-    display: flex;
+.skills__rounds__row {}
 
+.skills__round {
+    position: relative;
+    display: inline-block;
+    margin: * 5% * *;
+    &:last-of-type {
+        margin: 0;
+    }
 }
-
 
 .graphs__text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  font: 500 12px 'Roboto', Arial, sans-serif;
-  color: #10c1a8;
+    position: absolute 50% * * 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font: 500 12px 'Roboto', Arial, sans-serif;
+    color: #10c1a8;
 }
 
 .graph__svg {
     position: relative;
-  fill: none;
-  stroke-width: 20;
+    fill: none;
+    stroke-width: 20;
 }
 
 .graph__fill {
-  stroke-dasharray: 282.5;
-  transition: all 1s;
+    stroke-dasharray: 282.5;
+    transition: all 1s;
 }
 
 .graph__fill--html {
-  stroke-dashoffset: 20;
+    stroke-dashoffset: 20;
 }
 
 .graph__fill--css {
-  stroke-dashoffset: 40;
+    stroke-dashoffset: 40;
 }
 
 .graph__fill--js {
-  stroke-dashoffset: 150;
+    stroke-dashoffset: 150;
 }
 
 .graph__fill--php {
-  stroke-dashoffset: 200;
+    stroke-dashoffset: 200;
 }
 
 .graph__fill--mysql {
-  stroke-dashoffset: 200;
+    stroke-dashoffset: 200;
 }
 
 .graph__fill--node {
-  stroke-dashoffset: 120;
+    stroke-dashoffset: 120;
 }
 
 .graph__fill--mongo {
-  stroke-dashoffset: 180;
+    stroke-dashoffset: 180;
 }
 
 .graph__fill--git {
-  stroke-dashoffset: 50;
+    stroke-dashoffset: 50;
 }
 
 .graph__fill--gulp {
-  stroke-dashoffset: 70;
+    stroke-dashoffset: 70;
 }
 
 .graph__fill--bower {
-  stroke-dashoffset: 100;
+    stroke-dashoffset: 100;
 }
+
 .map__section {
-  position: relative;
-   min-height: calc(650px + 150px);
-   height: calc(100% + 150px);
-   margin: 0 0 -150px 0;
-   overflow: hidden;
-   z-index: -1;
-
-
+    position: relative;
+    min-height: calc(650px + 150px);
+    height: calc(100% + 150px);
+    margin: 0 0 -150px 0;
+    overflow: hidden;
+    z-index: -1;
 }
 
 .map__block {
-height: 100%;
-z-index: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+.contacts__block {
+    width: 23%;
+    position: absolute 50% * * 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: rgba(244, 245, 240, .85);
+    box-shadow: 1px 1px 8px rgba(55, 62, 66, 0.62);
+    border-radius: 5px;
+}
+
+.contacts__heading {
+    text-align: center;
+    font: 35px/1 'BERNIERRegular-Regular', Helvetica, Arial;
+    position: relative;
+    margin: 0;
+    padding: 1em 0;
+    &:before,
+    &:after {
+        display: block;
+        content: '';
+        width: 20px;
+        height: 5px;
+        background: #c9c8c0;
+        top: 50px;
+        position: absolute;
+    }
+    &:before {
+        left: 77px;
+    }
+    &:after {
+        right: 77px;
+    }
+}
+
+.contacts__item {
+    margin: 0 0 20px;
+}
+
+.contacts__svg {
+    fill: #00bea4;
+    size: 26px;
+    margin: 0 10px 0 40px;
+}
+
+.contacts__text {
+    font: 500 16px/30px 'Roboto', Arial, sans-serif;
+    vertical-align: super;
+    transition: all .5s;
+    cursor: pointer;
+    &:hover {
+        color: #4ecab6;
+    }
 }

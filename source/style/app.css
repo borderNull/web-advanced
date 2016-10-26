@@ -1,15 +1,31 @@
 @import 'common/fonts.css';
+@import 'common/header.css';
+@import 'common/footer.css';
 @import 'main.css';
 @import 'works.css';
 @import 'about.css';
+@import 'admin.css';
 
+html,
 body {
-  margin: 0;
-  padding: 0;
-
+    height: 100%;
+    min-height: 650px;
 }
 
+html,
+body,
+p,
+ul,
+li,
+article,
+aside,
+a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
 
-
-
-
+* {
+    box-sizing: border-box;
+}

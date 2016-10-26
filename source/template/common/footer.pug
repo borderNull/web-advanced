@@ -1,0 +1,12 @@
+.footer__top__section
+      .footer__nav__block
+       each link,name in menu
+        a.footer__nav__link(href=link)=name
+      .footer__socials__block
+       each id,link in rounds
+        a.footer__social__link(href=link)
+         svg.footer__social__svg
+           use(xlink:href=id)
+.footer__bottom__section
+      p.footer__descr Я веб-разработчик из Новосибирска, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
+      p.footer__author © Владимир Астахов | создано с любовью в LoftSchool | 2016
